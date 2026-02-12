@@ -1,40 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Manager</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
 <body>
 
-  <div class="container">
-    <h1>Task Manager ✅</h1>
-
-    <!-- Task Input -->
-    <form id="taskForm">
-      <input type="text" id="taskInput" placeholder="Enter a new task..." required />
-      <button type="submit">Add Task</button>
-    </form>
-
-    <!-- Filters -->
-    <div class="filters">
-      <button data-filter="all" class="active">All</button>
+<div class="app">
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>TaskFlow</h2>
+    <nav>
+      <button data-filter="all" class="active">All Tasks</button>
       <button data-filter="active">Active</button>
       <button data-filter="completed">Completed</button>
-    </div>
+    </nav>
+    <button id="themeToggle">🌙 Dark Mode</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    
+    <header class="header">
+      <h1>Dashboard</h1>
+      <div class="stats">
+        <span>Total: <b id="totalTasks">0</b></span>
+        <span>Completed: <b id="completedTasks">0</b></span>
+        <span>Active: <b id="activeTasks">0</b></span>
+      </div>
+    </header>
+
+    <!-- Add Task -->
+    <form id="taskForm" class="task-form">
+      <input type="text" id="taskInput" placeholder="What needs to be done?" required />
+      
+      <select id="priority">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <input type="date" id="dueDate" />
+
+      <button type="submit">Add</button>
+    </form>
 
     <!-- Task List -->
-    <ul id="taskList"></ul>
+    <div id="taskList" class="task-list"></div>
 
-    <!-- Stats -->
-    <div class="stats">
-      <p>Total: <span id="totalTasks">0</span></p>
-      <p>Completed: <span id="completedTasks">0</span></p>
-      <p>Active: <span id="activeTasks">0</span></p>
-    </div>
-  </div>
+  </main>
 
-  <script src="js/app.js"></script>
+</div>
+
+<script src="js/app.js"></script>
 </body>
-</html>
+
